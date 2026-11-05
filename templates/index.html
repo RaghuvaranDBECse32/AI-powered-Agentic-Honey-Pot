@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentic Honey-Pot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>🛡️ Agentic Honey-Pot</h1>
+    <p class="sub">Detects scam messages, engages the sender safely, and collects reportable evidence.</p>
+  </header>
+
+  <main>
+    <section class="panel chat">
+      <div class="toolbar">
+        <select id="samples" aria-label="Load a sample scam message">
+          <option value="">Load a sample (synthetic)…</option>
+        </select>
+        <button id="newBtn" class="ghost" type="button">New session</button>
+      </div>
+
+      <div id="log" class="log" aria-live="polite">
+        <p class="hint">Paste a suspicious message below, as the scammer would send it. The agent replies in character. Keep pasting the scammer's next messages to continue the conversation.</p>
+      </div>
+
+      <div class="composer">
+        <textarea id="msg" maxlength="2000" placeholder="Paste the suspicious message here…"></textarea>
+        <button id="sendBtn" type="button">Analyze</button>
+      </div>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <aside class="panel side">
+      <h2>Risk</h2>
+      <div class="meter"><div id="bar" class="bar"></div></div>
+      <p><strong id="score">0</strong> / 100 · <span id="type">—</span></p>
+      <p id="explain" class="muted"></p>
+
+      <h2>Indicators</h2>
+      <ul id="indicators" class="list"></ul>
+
+      <h2>Extracted intelligence</h2>
+      <div id="intel"><p class="muted">Nothing extracted yet.</p></div>
+
+      <button id="reportBtn" class="ghost" type="button" disabled>Download evidence report (JSON)</button>
+    </aside>
+  </main>
+
+  <footer>
+    <span id="mode">Checking mode…</span> ·
+    Use only sample or synthetic messages. This is a research prototype; review all output before reporting to cybercrime.gov.in.
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

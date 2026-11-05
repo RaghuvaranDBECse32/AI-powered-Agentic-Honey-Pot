@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent
 API_KEY = os.getenv("API_KEY", "ai_honeypot_demo_key")
 
 app = FastAPI(title="Agentic Honey-Pot")
-app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+app.mount("/static", StaticFiles(directory=BASE_DIR / "public" / "static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 
